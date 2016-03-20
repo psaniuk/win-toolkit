@@ -15,12 +15,14 @@
         <controls:RangeSelector
             x:Name="PriceSelector"
             Grid.Row="0"
-            Margin="12,0"
+            Margin="12,40,12,0"
             VerticalAlignment="Top"
             StartRange="25"
             EndRange="100"
             Minimum="25" Maximum="100" />
-        <StackPanel Grid.Row="1" Orientation="Horizontal">
+        <StackPanel Grid.Row="1" 
+                    Margin="12,0"
+                    Orientation="Horizontal">
             <TextBlock Text="{Binding ElementName=PriceSelector, Path=StartRange}" />
             <TextBlock Margin="10,0,0,0"  Text="{Binding ElementName=PriceSelector, Path=EndRange}" />
         </StackPanel>

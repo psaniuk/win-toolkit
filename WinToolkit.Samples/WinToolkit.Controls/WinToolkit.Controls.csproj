@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ImageView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RangeSelector.cs" />
     <EmbeddedResource Include="Properties\WinToolkit.Controls.rd.xml" />
