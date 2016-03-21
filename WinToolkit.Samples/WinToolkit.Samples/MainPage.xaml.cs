@@ -8,5 +8,10 @@ namespace WinToolkit.Samples
         {
             InitializeComponent();
         }
+
+        private void ImageViewPageButtonClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(ImageViewExamplePage));
+        }
     }
 }

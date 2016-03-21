@@ -69,7 +69,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:ImageView">
-                    <Image x:Name="ImageControl"/>
+                    <Image x:Name="ImageControl" Stretch="None"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
