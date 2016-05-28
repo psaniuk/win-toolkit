@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Net.Http;
-using Newtonsoft.Json;
+﻿using System.Net.Http;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
@@ -8,6 +6,7 @@ namespace WinToolkit.Samples
 {
     public sealed partial class ImageViewExamplePage : Page
     {
+        private readonly DataService _dataService = new DataService();
         public ImageViewExamplePage()
         {
             InitializeComponent();
@@ -19,11 +18,7 @@ namespace WinToolkit.Samples
 
             try
             {
-                var httpClient = new HttpClient();
-                HttpResponseMessage responseMsg = await httpClient.GetAsync("https://api.zalando.com/articles?brandFamily=adidas");
-                string json = await responseMsg.Content.ReadAsStringAsync();
-                ArticlesResponse data = JsonConvert.DeserializeObject<ArticlesResponse>(json);
-                ArticlesListView.ItemsSource = data.Content.Select(article => article.Media.Images.FirstOrDefault()).Where(img => img != null);
+                ArticlesListView.ItemsSource = await _dataService.GetImages();
             }
             catch(HttpRequestException exp)
             {
@@ -31,25 +26,4 @@ namespace WinToolkit.Samples
             }
         }
     }
-
-    public class ArticlesResponse
-    {
-        public Article[] Content { get; set; }
-    }
-
-    public class Article
-    {
-        public Media Media { get; set; }
-    }
-
-    public class Media
-    {
-        public Image[] Images { get; set; }
-    }
-
-    public class Image
-    {
-        public string SmallHdUrl { get; set; }
-    }
-
 }

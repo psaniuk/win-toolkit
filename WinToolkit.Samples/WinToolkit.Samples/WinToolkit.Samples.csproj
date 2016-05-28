@@ -98,6 +98,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ArticleResponse.cs" />
+    <Compile Include="DataService.cs" />
     <Compile Include="ImageViewExamplePage.xaml.cs">
       <DependentUpon>ImageViewExamplePage.xaml</DependentUpon>
     </Compile>
@@ -142,6 +144,7 @@
       <Name>WinToolkit.Controls</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
