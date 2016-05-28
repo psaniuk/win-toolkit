@@ -11,6 +11,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <controls:RangeSelector
             x:Name="PriceSelector"
@@ -26,6 +27,9 @@
             <TextBlock Text="{Binding ElementName=PriceSelector, Path=StartRange}" />
             <TextBlock Margin="10,0,0,0"  Text="{Binding ElementName=PriceSelector, Path=EndRange}" />
         </StackPanel>
-
+        <Button 
+            Grid.Row="2"
+            Margin="0,20,0,0"
+            Content="ImageView Page" Click="ImageViewPageButtonClick"/>
     </Grid>
 </Page>
