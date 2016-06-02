@@ -100,6 +100,9 @@
     </Compile>
     <Compile Include="ArticleResponse.cs" />
     <Compile Include="DataService.cs" />
+    <Compile Include="HorizontalSnapPointsPage.xaml.cs">
+      <DependentUpon>HorizontalSnapPointsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ImageViewExamplePage.xaml.cs">
       <DependentUpon>ImageViewExamplePage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="HorizontalSnapPointsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ImageViewExamplePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

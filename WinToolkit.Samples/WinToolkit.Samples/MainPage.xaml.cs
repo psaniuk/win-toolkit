@@ -13,5 +13,10 @@ namespace WinToolkit.Samples
         {
             Frame.Navigate(typeof(ImageViewExamplePage));
         }
+
+        private void SnapPointsButtonClick(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(HorizontalSnapPointsPage));
+        }
     }
 }

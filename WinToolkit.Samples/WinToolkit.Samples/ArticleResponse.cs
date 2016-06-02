@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WinToolkit.Samples
+﻿namespace WinToolkit.Samples
 {
     public class ArticlesResponse
     {
@@ -24,6 +18,6 @@ namespace WinToolkit.Samples
     public class Image
     {
         public string SmallHdUrl { get; set; }
+        public static Image Empty => new Image { SmallHdUrl = string.Empty };
     }
-
 }
