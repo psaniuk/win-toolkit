@@ -20,11 +20,22 @@ namespace WinToolkit.Samples
             base.OnNavigatedTo(e);
 
             List<Image> images = (await _dataService.GetImages()).ToList();
-        //    images.Insert(0, Image.Empty);
-          //  images.Insert(images.Count, Image.Empty);
+
+            //InsertEmptyItems(images);
 
             ImagesList.ItemsSource = images;
-            //ImagesList.ScrollIntoView(ImagesList.Items[1]);
+            
+            //ScrollToFirstItem();
+        }
+
+        private void ScrollToFirstItem()
+        {
+            ImagesList.ScrollIntoView(ImagesList.Items[1]);
+        }
+        private void InsertEmptyItems(List<Image> images)
+        {
+            images.Insert(0, Image.Empty);
+            images.Insert(images.Count, Image.Empty);
         }
     }
 }
