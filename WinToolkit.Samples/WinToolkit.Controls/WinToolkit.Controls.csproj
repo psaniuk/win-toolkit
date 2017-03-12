@@ -107,6 +107,7 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DropDownButton.cs" />
     <Compile Include="ImageView.cs" />
     <Compile Include="Imaging\ImageBackgroundProcessor.cs" />
     <Compile Include="Imaging\Pixel.cs" />

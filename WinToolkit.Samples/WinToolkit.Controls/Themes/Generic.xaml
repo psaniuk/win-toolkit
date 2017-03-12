@@ -74,6 +74,111 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
+      <Style TargetType="controls:DropDownButton">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="#000000" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="HeaderStyle">
+            <Setter.Value>
+                <Style TargetType="TextBlock">
+                    <Setter Property="FontSize" Value="16" />
+                    <Setter Property="Margin" Value="0" />
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:DropDownButton">
+                    <Grid Background="{TemplateBinding Background}"
+                          VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                          HorizontalAlignment="{TemplateBinding HorizontalAlignment}">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="TapStates">
+                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="PointerDown">
+                                    <Storyboard>
+                                        <PointerDownThemeAnimation TargetName="RootGrid" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="PointerUp">
+                                    <Storyboard>
+                                        <PointerUpThemeAnimation TargetName="RootGrid" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0"
+                                   VerticalAlignment="Center"
+                                   Style="{TemplateBinding HeaderStyle}"
+                                   Text="{TemplateBinding Header}" />
+                        <Grid
+                            x:Name="RootGrid"
+                            Grid.Column="1">
+                            <FlyoutBase.AttachedFlyout>
+                                <Flyout x:Name="OptionsFlyout" Placement="Bottom">
+                                    <Flyout.FlyoutPresenterStyle>
+                                        <Style TargetType="FlyoutPresenter">
+                                            <Setter Property="BorderBrush" Value="#000000" />
+                                            <Setter Property="Background" Value="#EBEBEB" />
+                                        </Style>
+                                    </Flyout.FlyoutPresenterStyle>
+                                    <ListView x:Name="OptionsList"
+                                              SelectionMode="Single"
+                                              ItemTemplate="{TemplateBinding ItemTemplate}"
+                                              ItemsSource="{TemplateBinding ItemsSource}">
+                                        <ListView.ItemContainerStyle>
+                                            <Style TargetType="ListViewItem">
+                                                <Setter Property="Background" Value="Transparent" />
+                                                <Setter Property="TabNavigation" Value="Local" />
+                                                <Setter Property="IsHoldingEnabled" Value="True" />
+                                                <Setter Property="BorderThickness" Value="0" />
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="ListViewItem">
+                                                            <ListViewItemPresenter
+                                                                ContentMargin="0,0,8,0"
+                                                                Padding="0"
+                                                                SelectionCheckMarkVisualEnabled="False"
+                                                                PressedBackground="Transparent"
+                                                                SelectedPressedBackground="Transparent"
+                                                                HorizontalContentAlignment="Stretch"
+                                                                VerticalContentAlignment="Stretch" />
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </ListView.ItemContainerStyle>
+                                    </ListView>
+                                </Flyout>
+                            </FlyoutBase.AttachedFlyout>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                x:Name="SelectedItemTextBlock"
+                                VerticalAlignment="Center"
+                                Foreground="{TemplateBinding Foreground}"
+                                Text="{TemplateBinding EmptySelectedItemText}" />
+                            <FontIcon
+                                x:Name="DropDownIcon"
+                                Grid.Column="1"
+                                FontSize="12"
+                                FontFamily="{ThemeResource SymbolThemeFontFamily}"
+                                Glyph="&#xE0E5;"
+                                HorizontalAlignment="Right" VerticalAlignment="Center" Margin="4,2,0,0" />
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
         
     
 </ResourceDictionary>

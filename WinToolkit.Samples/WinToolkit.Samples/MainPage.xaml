@@ -1,4 +1,5 @@
 ﻿<Page
+    x:Name="HomePage"
     x:Class="WinToolkit.Samples.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,9 +7,9 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:WinToolkit.Controls"
     mc:Ignorable="d">
-
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
@@ -22,19 +23,36 @@
             StartRange="25"
             EndRange="100"
             Minimum="25" Maximum="100" />
-        <StackPanel Grid.Row="1" 
+        <StackPanel Grid.Row="1"
                     Margin="12,0"
                     Orientation="Horizontal">
             <TextBlock Text="{Binding ElementName=PriceSelector, Path=StartRange}" />
-            <TextBlock Margin="10,0,0,0"  Text="{Binding ElementName=PriceSelector, Path=EndRange}" />
+            <TextBlock Margin="10,0,0,0" Text="{Binding ElementName=PriceSelector, Path=EndRange}" />
         </StackPanel>
-        <Button 
+        <Button
             Grid.Row="2"
             Margin="0,20,0,0"
-            Content="ImageView Page" Click="ImageViewPageButtonClick"/>
+            Content="ImageView Page" Click="ImageViewPageButtonClick" />
         <Button
             Grid.Row="3"
             Margin="0,20,0,0"
-            Content="Snap points example" Click="SnapPointsButtonClick"/>
+            Content="Snap points example" Click="SnapPointsButtonClick" />
+        <controls:DropDownButton Grid.Row="4"
+                                 Margin="12,80,0,0"
+                                 Header="Your selection:"
+                                 EmptySelectedItemText="choose something"
+                                 ItemsSource="{Binding DropDownButtonSource, ElementName=HomePage}">
+            <controls:DropDownButton.HeaderStyle>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,0,8,0"/>
+                </Style>
+            </controls:DropDownButton.HeaderStyle>
+            <controls:DropDownButton.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" />
+                </DataTemplate>
+            </controls:DropDownButton.ItemTemplate>
+        </controls:DropDownButton>
+
     </Grid>
 </Page>
